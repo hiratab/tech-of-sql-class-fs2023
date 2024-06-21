@@ -26,7 +26,7 @@ const connectToDatabase = async () => {
 
   try {
     const [results, fields] = await databaseConnection.query(
-      'SELECT * FROM `tb_anime`'
+      'select 1 from DUAL'
     );
   
     console.log(results); // results contains rows returned by server
@@ -37,6 +37,20 @@ const connectToDatabase = async () => {
   console.log('Connected to the database');
 }
 
+const disconnectFromDatabase = async () => {
+  if (!databaseConnection) return;
+  return databaseConnection.destroy();
+}
+
+const getDBConnection = async () => {
+  if (!databaseConnection) {
+    await connectToDatabase();
+  }
+  return databaseConnection;
+}
+
 module.exports = {
-  connectToDatabase
+  connectToDatabase,
+  disconnectFromDatabase,
+  getDBConnection,
 }
