@@ -1,0 +1,20 @@
+{
+  "configurations": [
+  {
+    "name": "Launch Program",
+    "program": "${workspaceFolder}/src/app.js",
+    "request": "launch",
+    "skipFiles": [
+      "<node_internals>/**"
+    ],
+    "type": "node",
+    "env": {
+      "PORT": "3000",
+      "MYSQL_HOST": "localhost",
+      "MYSQL_USER": "root",
+      "MYSQL_PWD": "my-secret-pw",
+      "MSQL_DB_NAME": "mydb",
+    }
+  }
+  ]
+}

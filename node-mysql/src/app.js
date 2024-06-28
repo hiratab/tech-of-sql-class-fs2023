@@ -15,7 +15,8 @@ app.get('/anime/:id?', async (req, res) => {
   const db = await getDBConnection();
 
   try {
-    const query = animeId ? 'select * from `tb_anime` where `anime_id` = ?' : 'select * from `tb_anime`'
+    // const query = animeId ? 'select * from `tb_anime` where `anime_id` = ?' : 'select * from `tb_anime`'
+    const query = 'select * from `tb_season` where `season_anime_id` = 1';
     const [results] = await db.query(
       query,
       [animeId]
